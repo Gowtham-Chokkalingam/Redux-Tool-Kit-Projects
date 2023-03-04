@@ -15,7 +15,7 @@ export const getCartItems = createAsyncThunk("cart/getCartItems", async () => {
 });
 
 const initialState = {
-  cartItems: cartItems,
+  cartItems: [],
   amount: 1,
   total: 0,
   isLoading: true,
@@ -59,7 +59,6 @@ const cartSlice = createSlice({
       state.isLoading = true;
     },
     [getCartItems.fulfilled]: (state, action) => {
-      console.log("action:", action);
       state.isLoading = false;
       state.cartItems = action.payload;
     },
